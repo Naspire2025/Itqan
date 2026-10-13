@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { ui, site, locales } from '../../i18n/content';
+import type { Lang } from '../../i18n/content';
+export const getStaticPaths = () => locales.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+const f = ui.contact.form;
+const field = 'mt-1 w-full rounded-md border border-brand-100 bg-white px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30';
+---
+<Base lang={lang} title={ui.nav.contact[lang]} description={ui.contact.sub[lang]} path="contact">
+  <PageHero title={ui.contact.title[lang]} sub={ui.contact.sub[lang]} />
+  <section class="container-x grid gap-10 py-14 lg:grid-cols-5">
+    <form id="enroll" class="space-y-4 lg:col-span-3" data-mailto={site.emails[0]}>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <label class="text-sm font-medium">{f.name[lang]}<input name="name" required class={field} /></label>
+        <label class="text-sm font-medium">{f.org[lang]}<input name="org" class={field} /></label>
+        <label class="text-sm font-medium">{f.email[lang]}<input name="email" type="email" required class={field} dir="ltr" /></label>
+        <label class="text-sm font-medium">{f.phone[lang]}<input name="phone" type="tel" class={field} dir="ltr" /></label>
+        <label class="text-sm font-medium">{f.pkg[lang]}
+          <select name="pkg" class={field}>
+            <option value="">{f.unsure[lang]}</option>
+            {ui.pricing.rows.map((r) => <option value={r.name.en}>{r.name[lang]} ({r.people})</option>)}
+          </select>
+        </label>
+        <label class="text-sm font-medium">{f.track[lang]}
+          <select name="track" class={field}>
+            <option value="">{f.unsure[lang]}</option>
+            {ui.tracks.rows.map((r) => <option value={r.track.en}>{r.track[lang]}</option>)}
+          </select>
+        </label>
+      </div>
+      <label class="block text-sm font-medium">{f.msg[lang]}<textarea name="msg" rows="4" class={field}></textarea></label>
+      <button class="btn btn-primary" type="submit">{f.send[lang]}</button>
+    </form>
+
+    <aside class="space-y-4 lg:col-span-2">
+      <h2 class="text-lg font-bold text-brand-900">{ui.contact.whatsapp[lang]}</h2>
+      <ul class="space-y-2">
+        {site.phones.map((p) => (
+          <li>
+            <a class="flex items-center justify-between rounded-lg border border-brand-100 px-4 py-3 text-sm hover:bg-brand-50"
+               href={`https://wa.me/${p.wa}`} rel="noopener">
+              <span class="font-medium">{p.country[lang]}</span><span dir="ltr">{p.number}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <h2 class="pt-4 text-lg font-bold text-brand-900">{ui.contact.email[lang]}</h2>
+      {site.emails.map((e) => <a class="block text-sm text-brand-800 underline" dir="ltr" style="text-align:start" href={`mailto:${e}`}>{e}</a>)}
+    </aside>
+  </section>
+</Base>
+
+<script>
+  // Interim: opens the visitor's mail client prefilled. Replaced by a real endpoint (Resend + DB) next.
+  const form = document.getElementById('enroll') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    const body = [
+      `Name: ${d.name}`, `Company: ${d.org}`, `Email: ${d.email}`, `Phone: ${d.phone}`,
+      `Package: ${d.pkg}`, `Track: ${d.track}`, '', d.msg,
+    ].join('\n');
+    location.href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent('ICFDP enrollment request')}&body=${encodeURIComponent(body)}`;
+  });
+</script>

@@ -1,0 +1,115 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import TracksTable from '../../components/TracksTable.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import InstructorCard from '../../components/InstructorCard.astro';
+import { ui, site, locales } from '../../i18n/content';
+import type { Lang } from '../../i18n/content';
+
+export const getStaticPaths = () => locales.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+const h = ui.hero;
+---
+<Base lang={lang} title={h.title[lang]} description={h.sub[lang]} path="">
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-800 via-brand-600 to-brand-500 text-white">
+    <div class="container-x grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-5">
+      <div class="lg:col-span-3">
+        <p class="text-sm font-medium text-white/80">{h.eyebrow[lang]}</p>
+        <h1 class="mt-3 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">{h.title[lang]}</h1>
+        <p class="mt-5 max-w-xl text-lg text-white/90">{h.sub[lang]}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={`/${lang}/contact/`} class="btn btn-primary">{h.cta1[lang]}</a>
+          <a href={`/${lang}/program/`} class="btn btn-ghost">{h.cta2[lang]}</a>
+        </div>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur">
+          <p class="text-xs font-semibold uppercase tracking-widest text-white/70">{site.program}</p>
+          <p class="mt-1 text-xl font-bold">{site.programFull[lang]}</p>
+          <dl class="mt-6 grid grid-cols-2 gap-5">
+            {ui.stats.map((s) => (
+              <div>
+                <dt class="text-4xl font-bold" dir="ltr" style="text-align:start">{s.value}</dt>
+                <dd class="text-sm text-white/80">{s.label[lang]}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-x py-16 sm:py-20">
+    <p class="eyebrow">{site.program}</p>
+    <h2 class="h2 mt-2">{ui.why.title[lang]}</h2>
+    <p class="mt-3 max-w-3xl text-lg text-ink/70">{ui.why.lead[lang]}</p>
+    <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {ui.why.items[lang].map((t, i) => (
+        <li class="flex gap-4 rounded-xl border border-brand-100 p-5">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-800" dir="ltr">{i + 1}</span>
+          <span class="text-sm leading-relaxed">{t}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="bg-brand-50">
+    <div class="container-x py-16 sm:py-20">
+      <h2 class="h2">{ui.outlines.title[lang]}</h2>
+      <ol class="mt-8 grid gap-x-10 gap-y-2 text-sm sm:grid-cols-2">
+        {ui.outlines.items[lang].map((t, i) => (
+          <li class="flex gap-3 border-b border-brand-100 py-2.5">
+            <span class="w-6 shrink-0 font-semibold text-accent" dir="ltr">{String(i + 1).padStart(2, '0')}</span>
+            <span>{t}</span>
+          </li>
+        ))}
+      </ol>
+      <a href={`/${lang}/program/`} class="btn btn-outline mt-8">{ui.hero.cta2[lang]}</a>
+    </div>
+  </section>
+
+  <section class="container-x py-16 sm:py-20">
+    <h2 class="h2">{ui.tracks.title[lang]}</h2>
+    <div class="mt-8"><TracksTable lang={lang} /></div>
+    <h2 class="h2 mt-16">{ui.pricing.title[lang]}</h2>
+    <p class="mt-3 text-ink/70">{ui.pricing.sub[lang]}</p>
+    <div class="mt-8"><PricingCards lang={lang} /></div>
+  </section>
+
+  <section class="bg-brand-50">
+    <div class="container-x py-16 sm:py-20">
+      <h2 class="h2">{ui.instructors.title[lang]}</h2>
+      <p class="mt-3 text-ink/70">{ui.instructors.sub[lang]}</p>
+      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {ui.instructors.people.map((p) => <InstructorCard p={p} lang={lang} compact />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-x py-16 sm:py-20">
+    <div class="grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="h2">{ui.about.title[lang]}</h2>
+        <p class="mt-4 leading-relaxed text-ink/80">{ui.about.body[lang]}</p>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="rounded-xl border border-brand-100 p-6">
+          <h3 class="font-bold text-brand-800">{ui.about.vision.title[lang]}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/80">{ui.about.vision.body[lang]}</p>
+        </div>
+        <div class="rounded-xl border border-brand-100 p-6">
+          <h3 class="font-bold text-brand-800">{ui.about.mission.title[lang]}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink/80">{ui.about.mission.body[lang]}</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12">
+      <h3 class="text-sm font-semibold text-ink/60">{ui.countries.title[lang]}</h3>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        {ui.countries.list[lang].map((c) => <li class="rounded-full bg-brand-50 px-4 py-1.5 text-sm text-brand-800">{c}</li>)}
+      </ul>
+    </div>
+  </section>
+  <CtaBand lang={lang} />
+</Base>

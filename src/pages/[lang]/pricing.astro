@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import TracksTable from '../../components/TracksTable.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import { ui, locales } from '../../i18n/content';
+import type { Lang } from '../../i18n/content';
+export const getStaticPaths = () => locales.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+---
+<Base lang={lang} title={ui.nav.pricing[lang]} description={ui.pricing.sub[lang]} path="pricing">
+  <PageHero title={ui.nav.pricing[lang]} sub={ui.pricing.sub[lang]} />
+  <section class="container-x py-14">
+    <h2 class="h2">{ui.tracks.title[lang]}</h2>
+    <div class="mt-8"><TracksTable lang={lang} /></div>
+    <h2 class="h2 mt-16">{ui.pricing.title[lang]}</h2>
+    <div class="mt-8"><PricingCards lang={lang} /></div>
+    <a href={`/${lang}/contact/`} class="btn btn-primary mt-10">{ui.pricing.cta[lang]}</a>
+  </section>
+  <CtaBand lang={lang} />
+</Base>

@@ -1,0 +1,48 @@
+---
+import { ui } from '../i18n/content';
+import type { Lang } from '../i18n/content';
+import { other } from '../i18n/utils';
+interface Props { lang: Lang; path: string }
+const { lang, path } = Astro.props;
+const n = ui.nav;
+const links = [
+  ['', n.home], ['program', n.program], ['pricing', n.pricing],
+  ['instructors', n.instructors], ['accreditations', n.accreditations], ['contact', n.contact],
+] as const;
+const to = (p: string) => `/${lang}/${p ? p + '/' : ''}`;
+const switchHref = `/${other(lang)}/${path ? path + '/' : ''}`;
+const active = (p: string) => p === path;
+---
+<header class="sticky top-0 z-40 border-b border-brand-100 bg-white/90 backdrop-blur">
+  <div class="container-x flex h-16 items-center gap-6">
+    <a href={to('')} class="flex shrink-0 items-center gap-2" aria-label="IBA – Itqan Business Academy">
+      <img src="/images/logo-iba.png" alt="iba" class="h-9 w-auto" />
+    </a>
+    <nav class="hidden flex-1 items-center gap-1 lg:flex" aria-label="Main">
+      {links.map(([p, label]) => (
+        <a href={to(p)} aria-current={active(p) ? 'page' : undefined}
+           class={`rounded-md px-3 py-2 text-sm font-medium hover:bg-brand-50 ${active(p) ? 'text-brand-800 bg-brand-50' : 'text-ink/80'}`}>
+          {label[lang]}
+        </a>
+      ))}
+    </nav>
+    <div class="ms-auto flex items-center gap-2 lg:ms-0">
+      <a href={switchHref} hreflang={other(lang)} lang={other(lang)}
+         class="rounded-md border border-brand-100 px-3 py-2 text-sm font-semibold text-brand-800 hover:bg-brand-50">
+        {n.switch[lang]}
+      </a>
+      <a href={to('contact')} class="btn btn-primary hidden sm:inline-flex">{n.enroll[lang]}</a>
+      <details class="relative lg:hidden">
+        <summary class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-md border border-brand-100" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </summary>
+        <div class="absolute end-0 mt-2 w-64 rounded-lg border border-brand-100 bg-white p-2 shadow-lg">
+          {links.map(([p, label]) => (
+            <a href={to(p)} class="block rounded-md px-3 py-2.5 text-sm font-medium hover:bg-brand-50">{label[lang]}</a>
+          ))}
+          <a href={to('contact')} class="btn btn-primary mt-2 w-full">{n.enroll[lang]}</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

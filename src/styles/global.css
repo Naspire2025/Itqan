@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #eef7f7;
+  --color-brand-100: #d6ecec;
+  --color-brand-400: #5bb0b3;
+  --color-brand-500: #4a9ca0;
+  --color-brand-600: #3a8084;
+  --color-brand-800: #1f5559;
+  --color-brand-900: #123a3d;
+  --color-accent: #e8662b;
+  --color-accent-600: #cf5520;
+  --color-ink: #0f2a2d;
+  --font-sans-latin: "Inter Variable", system-ui, sans-serif;
+  --font-sans-arabic: "IBM Plex Sans Arabic", "Inter Variable", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+html[lang="ar"] body { font-family: var(--font-sans-arabic); }
+html[lang="en"] body { font-family: var(--font-sans-latin); }
+body { color: var(--color-ink); background: #fff; -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .btn { @apply inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent; }
+  .btn-primary { @apply bg-accent text-white hover:bg-accent-600; }
+  .btn-ghost { @apply border border-white/50 text-white hover:bg-white/10; }
+  .btn-outline { @apply border border-brand-800 text-brand-800 hover:bg-brand-50; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-widest text-accent; }
+  .h2 { @apply text-3xl font-bold tracking-tight text-brand-900 sm:text-4xl; }
+}

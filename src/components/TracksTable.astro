@@ -1,0 +1,28 @@
+---
+import { ui } from '../i18n/content';
+import type { Lang } from '../i18n/content';
+const { lang } = Astro.props as { lang: Lang };
+const t = ui.tracks;
+---
+<div class="overflow-x-auto rounded-xl border border-brand-100">
+  <table class="w-full min-w-[34rem] text-sm">
+    <thead class="bg-brand-600 text-white">
+      <tr>
+        <th class="p-4 text-start font-semibold">{t.headers.track[lang]}</th>
+        <th class="p-4 text-start font-semibold">{t.headers.days[lang]}</th>
+        <th class="p-4 text-start font-semibold">{t.headers.total[lang]}</th>
+        <th class="p-4 text-start font-semibold">{t.headers.daily[lang]}</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-brand-100">
+      {t.rows.map((r) => (
+        <tr class="odd:bg-white even:bg-brand-50/50">
+          <th scope="row" class="p-4 text-start font-semibold text-brand-900">{r.track[lang]}</th>
+          <td class="p-4">{r.days[lang]}</td>
+          <td class="p-4">{r.total}</td>
+          <td class="p-4">{r.daily[lang]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

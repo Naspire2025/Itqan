@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { ui, locales } from '../../i18n/content';
+import type { Lang } from '../../i18n/content';
+export const getStaticPaths = () => locales.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+const a = ui.accreditations;
+---
+<Base lang={lang} title={a.title[lang]} description={a.certBody[lang]} path="accreditations">
+  <PageHero title={a.title[lang]} sub={a.certBody[lang]} />
+  <section class="container-x py-14">
+    <h2 class="text-xl font-bold text-brand-900">{a.current[lang]}</h2>
+    <ul class="mt-5 grid gap-4 sm:grid-cols-2">
+      {a.currentList.map((c) => (
+        <li class="flex items-center gap-4 rounded-xl border border-brand-100 p-5">
+          <span class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-50 text-brand-600">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.500-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <div><p class="font-semibold text-brand-900" dir="ltr" style="text-align:start">{c.name}</p><p class="text-xs text-ink/60" dir="ltr" style="text-align:start">{c.note[lang]}</p></div>
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="mt-12 text-xl font-bold text-brand-900">{a.progress[lang]}</h2>
+    <p class="mt-1 text-sm text-ink/60">{a.progressNote[lang]}</p>
+    <ul class="mt-5 grid gap-4 sm:grid-cols-3">
+      {a.progressList.map((n) => (
+        <li class="rounded-xl border border-dashed border-brand-400/60 bg-brand-50/40 p-5 text-center font-semibold text-ink/70" dir="ltr">{n}</li>
+      ))}
+    </ul>
+
+    <h2 class="mt-14 text-xl font-bold text-brand-900">{a.certTitle[lang]}</h2>
+    <div class="mt-5 overflow-hidden rounded-xl border border-brand-100 shadow-sm">
+      <img src="/images/certificate.png" alt="ICFDP certificate of completion" class="w-full" loading="lazy" />
+    </div>
+  </section>
+  <CtaBand lang={lang} />
+</Base>
