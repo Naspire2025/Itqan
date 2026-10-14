@@ -7,9 +7,12 @@ type L = { ar: string; en: string };
 type LL = { ar: string[]; en: string[] };
 
 export const site = {
-  // Same in both languages: a name, never translated.
+  // The acronym is identical in both languages; the full name is translated.
   brand: 'CFDP',
-  brandFull: 'Certified Factory Digitalization Professional',
+  brandFull: {
+    ar: 'المحترف المعتمد في رقمنة المصانع',
+    en: 'Certified Factory Digitalization Professional',
+  } as L,
   phones: [
     { country: { ar: 'الأردن', en: 'Jordan' } as L, number: '+962 7 8500 0401', wa: '962785000401' },
     { country: { ar: 'الإمارات', en: 'UAE' } as L, number: '+971 55 777 9798', wa: '971557779798' },
@@ -43,8 +46,12 @@ export const ui = {
     { value: '22', label: { ar: 'محورًا رئيسيًا', en: 'Core axes' } as L },
     { value: '50', label: { ar: 'ساعة تدريبية', en: 'Training hours' } as L },
     { value: '6', label: { ar: 'أيام مكثفة', en: 'Intensive days' } as L },
-    { value: '2', label: { ar: 'لغتان: عربي وإنجليزي', en: 'Languages: AR & EN' } as L },
+    { value: '3', label: { ar: 'مسارات مرنة', en: 'Flexible tracks' } as L },
   ],
+  heroCard: {
+    kicker: { ar: 'شهادة احترافية', en: 'Professional certification' } as L,
+    tags: { ar: ['أونلاين بالكامل', 'العربية', 'English'], en: ['Fully online', 'English', 'العربية'] } as LL,
+  },
   why: {
     title: { ar: 'لماذا CFDP؟', en: 'Why CFDP?' } as L,
     lead: {
@@ -75,21 +82,21 @@ export const ui = {
   about: {
     title: { ar: 'عن CFDP', en: 'About CFDP' } as L,
     body: {
-      ar: 'يقدم CFDP نموذجًا مميزًا في التعليم الإلكتروني ينطلق من شعار متكامل «اتعلم. اتدرب. اشتغل»، حيث الجمع بين العلم والعمل والممارسة الدائمة التي تؤدي للنجاح. كما يقدم مناهج محدثة ومحاضرين من قلب سوق العمل للجمع بين متطلبات الدراسة الأكاديمية والتطبيق الذي يحتاجه السوق، وذلك في وقت قياسي غير مخل بالمعلومات أو الممارسة العملية وبتكلفة تناسب مع أغلب شرائح المجتمع.',
-      en: 'CFDP offers a distinct model in e-learning built on one integrated slogan: “Learn. Train. Work.” It combines knowledge, work and permanent practice that leads to success. Updated curricula and lecturers from the heart of the labor market join academic requirements with what the market needs, in record time and at a cost that suits most segments of society.',
+      ar: 'CFDP برنامج شهادة احترافية يساعد المصانع وشركات التصنيع على الانتقال إلى الرقمية. يجمع في منهج تكاملي واحد ٢٢ محورًا رئيسيًا في عمليات التصنيع والتصدير: من الفعاليات الافتراضية والتجارة الإلكترونية والتسويق الرقمي، إلى إدارة التصدير وسلاسل الإمداد ولين 6 سيجما. صُمم البرنامج خصيصًا لمعالجة المشكلات الموجودة في السوق، ويُقدَّم أونلاين بالكامل باللغتين العربية والإنجليزية على يد محاضرين متخصصين أكاديميًا وعمليًا.',
+      en: 'CFDP is a professional certification program that helps factories and manufacturers move to digital. One integrated curriculum covers the 22 core axes of manufacturing and export, from virtual events, e-commerce and digital marketing to export management, supply chains and Lean Six Sigma. It is designed around the real problems factories face in the market, and delivered fully online in Arabic and English by lecturers who are specialists both academically and in practice.',
     } as L,
     vision: {
       title: { ar: 'الرؤية', en: 'Vision' } as L,
       body: {
-        ar: 'أن يكون CFDP من أكبر نماذج التعليم الإلكتروني للأعمال في مصر والعالم العربي، وأن يقدم نموذجًا متطورًا ومتكاملًا متخصصًا في البيزنس في التعليم والتدريب الإلكتروني.',
-        en: 'To be one of the largest e-learning models for business in Egypt and the Arab world, offering an advanced, integrated model specialized in business e-learning and training.',
+        ar: 'أن تأخذ مصانعنا دورها في سباق التحول الرقمي، وأن تحجز لنفسها مكانًا متميزًا في أكبر سوق عرفه التاريخ: الإنترنت.',
+        en: 'Factories that take their place in the race of digital transformation, and hold a distinguished position in the largest market in history: the internet.',
       } as L,
     },
     mission: {
       title: { ar: 'الرسالة', en: 'Mission' } as L,
       body: {
-        ar: 'تقديم رحلة تعليمية متكاملة، وتأسيس كوادر متقنة لتخصصاتها تجمع بين الجانبين النظري والعملي، وتكون مؤثرة بصورة إيجابية في سوق العمل المصري والعربي.',
-        en: 'To offer an integrated educational journey and establish cadres skilled in their specializations, combining theory and practice and positively influencing the Egyptian and Arab labor market.',
+        ar: 'تمكين فرق التصنيع والتصدير من إدارة أعمالها رقميًا من البداية إلى النهاية: الفعاليات الافتراضية، والمتجر الإلكتروني، والتسويق والإعلان، والدفع والشحن، والتصدير وسلاسل الإمداد، من خلال برنامج أونلاين متكامل وباقات مرنة تناسب حجم كل مؤسسة.',
+        en: 'To equip manufacturing and export teams to run their business digitally end to end: virtual events, the online store, marketing and advertising, payments and shipping, export and supply chains, through one integrated online program with flexible packages for every size of institution.',
       } as L,
     },
   },
