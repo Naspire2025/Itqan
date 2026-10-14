@@ -32,9 +32,7 @@ const a = ui.accreditations;
     </ul>
 
     <h2 class="mt-14 text-xl font-bold text-brand-900">{a.certTitle[lang]}</h2>
-    <div class="mt-5 overflow-hidden rounded-xl border border-brand-100 shadow-sm">
-      <img src="/images/certificate.png" alt="ICFDP certificate of completion" class="w-full" loading="lazy" />
-    </div>
+    <p class="mt-2 text-ink/80">{a.certBody[lang]}</p>
   </section>
   <CtaBand lang={lang} />
 </Base>

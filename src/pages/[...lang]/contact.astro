@@ -11,7 +11,7 @@ const field = 'mt-1 w-full rounded-md border border-brand-100 bg-white px-3 py-2
 <Base lang={lang} title={ui.nav.contact[lang]} description={ui.contact.sub[lang]} path="contact">
   <PageHero title={ui.contact.title[lang]} sub={ui.contact.sub[lang]} />
   <section class="container-x grid gap-10 py-14 lg:grid-cols-5">
-    <form id="enroll" class="space-y-4 lg:col-span-3" data-mailto={site.emails[0]}>
+    <form id="enroll" class="space-y-4 lg:col-span-3" data-wa={site.phones[0].wa} data-subject={`${site.brand} enrollment request`}>
       <div class="grid gap-4 sm:grid-cols-2">
         <label class="text-sm font-medium">{f.name[lang]}<input name="name" required class={field} /></label>
         <label class="text-sm font-medium">{f.org[lang]}<input name="org" class={field} /></label>
@@ -46,22 +46,21 @@ const field = 'mt-1 w-full rounded-md border border-brand-100 bg-white px-3 py-2
           </li>
         ))}
       </ul>
-      <h2 class="pt-4 text-lg font-bold text-brand-900">{ui.contact.email[lang]}</h2>
-      {site.emails.map((e) => <a class="block text-sm text-brand-800 underline" dir="ltr" style="text-align:start" href={`mailto:${e}`}>{e}</a>)}
     </aside>
   </section>
 </Base>
 
 <script>
-  // Interim: opens the visitor's mail client prefilled. Replaced by a real endpoint (Resend + DB) next.
+  // Interim: opens WhatsApp with the request prefilled. Replaced by a real endpoint later.
   const form = document.getElementById('enroll') as HTMLFormElement | null;
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(form)) as Record<string, string>;
-    const body = [
+    const text = [
+      form.dataset.subject, '',
       `Name: ${d.name}`, `Company: ${d.org}`, `Email: ${d.email}`, `Phone: ${d.phone}`,
       `Package: ${d.pkg}`, `Track: ${d.track}`, '', d.msg,
     ].join('\n');
-    location.href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent('ICFDP enrollment request')}&body=${encodeURIComponent(body)}`;
+    window.open(`https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
   });
 </script>
