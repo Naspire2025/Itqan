@@ -9,7 +9,7 @@ const lang = langFromParam(Astro.params.lang);
 const s = ui.schedule;
 ---
 <Base lang={lang} title={ui.nav.program[lang]} description={ui.hero.sub[lang]} path="program">
-  <PageHero eyebrow={site.program} title={ui.nav.program[lang]} sub={ui.hero.sub[lang]} />
+  <PageHero eyebrow={site.brand} title={ui.nav.program[lang]} sub={`${site.brandFull}. ${ui.hero.sub[lang]}`} />
 
   <section class="container-x py-14">
     <h2 class="h2">{ui.outcomes.title[lang]}</h2>
