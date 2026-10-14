@@ -1,6 +1,7 @@
 ---
 import { ui } from '../i18n/content';
 import type { Lang } from '../i18n/content';
+import { num } from '../i18n/utils';
 const { lang } = Astro.props as { lang: Lang };
 const t = ui.tracks;
 ---
@@ -19,7 +20,7 @@ const t = ui.tracks;
         <tr class="odd:bg-white even:bg-brand-50/50">
           <th scope="row" class="p-4 text-start font-semibold text-brand-900">{r.track[lang]}</th>
           <td class="p-4">{r.days[lang]}</td>
-          <td class="p-4">{r.total}</td>
+          <td class="p-4">{num(r.total, lang)}</td>
           <td class="p-4">{r.daily[lang]}</td>
         </tr>
       ))}

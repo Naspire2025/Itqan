@@ -1,6 +1,7 @@
 ---
 import { ui } from '../i18n/content';
 import type { Lang } from '../i18n/content';
+import { num } from '../i18n/utils';
 const { lang } = Astro.props as { lang: Lang };
 const p = ui.pricing;
 ---
@@ -8,11 +9,11 @@ const p = ui.pricing;
   {p.rows.map((r) => (
     <div class={`relative flex flex-col rounded-xl border p-6 ${r.featured ? 'border-accent shadow-lg' : 'border-brand-100'}`}>
       <h3 class="text-lg font-bold text-brand-900">{r.name[lang]}</h3>
-      <p class="mt-1 text-sm text-ink/60">{p.headers.people[lang]}: <span dir="ltr">{r.people}</span></p>
-      <p class="mt-5 text-4xl font-bold text-brand-800" dir="ltr" style="text-align:start">${r.fee}</p>
+      <p class="mt-1 text-sm text-ink/60">{p.headers.people[lang]}: <span dir="ltr">{num(r.people, lang)}</span></p>
+      <p class="mt-5 text-4xl font-bold text-brand-800" dir="ltr" style="text-align:start">${num(r.fee, lang)}</p>
       <p class="text-xs text-ink/60">{p.headers.fee[lang]}</p>
       <p class="mt-5 border-t border-brand-100 pt-4 text-sm">
-        {p.headers.total[lang]}: <strong dir="ltr" class="text-brand-900">${r.total}</strong>
+        {p.headers.total[lang]}: <strong dir="ltr" class="text-brand-900">${num(r.total, lang)}</strong>
       </p>
     </div>
   ))}

@@ -11,3 +11,4 @@
 - Rewrote About, Vision and Mission (AR/EN) around the CFDP program itself. The source is the brochure's program, "Why" and outputs pages; the academy wording is gone.
 - The full name is now translated on the Arabic version: "المحترف المعتمد في رقمنة المصانع" (`site.brandFull` is `{ ar, en }`).
 - Redesigned the home hero card: a white card with the CFDP mark and a "Professional certification" tag, a 2×2 stat grid aligned correctly in RTL and LTR, and tags for online plus both languages. The languages stat became "3 flexible tracks".
+- Arabic pages now show Arabic-Indic digits (٢٢، ٥٠، $٦٦٦) via a new `num()` helper in `src/i18n/utils.ts`. It covers stats, numbered lists, schedule days, hours, participants and prices. Phone numbers are unchanged. The schedule day badge now says "اليوم" on Arabic pages.
