@@ -36,7 +36,7 @@ export const ui = {
     eyebrow: { ar: 'CFDP · تعلّم. تدرّب. اعمل.', en: 'CFDP · Learn. Train. Work.' } as L,
     title: { ar: 'المصانع تنتقل إلى الرقمية', en: 'Factories moving to digital' } as L,
     sub: {
-      ar: 'برنامج أونلاين متكامل للتحول الرقمي في التصنيع والتصدير: ٢٢ محورًا من التجارة الإلكترونية والتسويق الرقمي حتى سلاسل الإمداد ولين 6 سيجما.',
+      ar: 'برنامج أونلاين متكامل للتحول الرقمي في التصنيع والتصدير: 22 محورًا من التجارة الإلكترونية والتسويق الرقمي حتى سلاسل الإمداد ولين 6 سيجما.',
       en: 'A complete online program for digital transformation in manufacturing and export, from e-commerce and digital marketing to supply chains and Lean Six Sigma, across 22 core axes.',
     } as L,
     cta1: { ar: 'سجّل الآن', en: 'Enroll now' } as L,
@@ -55,7 +55,7 @@ export const ui = {
   why: {
     title: { ar: 'لماذا CFDP؟', en: 'Why CFDP?' } as L,
     lead: {
-      ar: 'البرنامج الوحيد في العالم الذي يحتوي على الـ٢٢ محورًا الرئيسية في عمليات التصنيع والتصدير الخارجي.',
+      ar: 'البرنامج الوحيد في العالم الذي يحتوي على الـ22 محورًا الرئيسية في عمليات التصنيع والتصدير الخارجي.',
       en: 'The only program in the world that covers the 22 main axes of manufacturing and external export.',
     } as L,
     items: {
@@ -82,7 +82,7 @@ export const ui = {
   about: {
     title: { ar: 'عن CFDP', en: 'About CFDP' } as L,
     body: {
-      ar: 'CFDP برنامج شهادة احترافية يساعد المصانع وشركات التصنيع على الانتقال إلى الرقمية. يجمع في منهج تكاملي واحد ٢٢ محورًا رئيسيًا في عمليات التصنيع والتصدير: من الفعاليات الافتراضية والتجارة الإلكترونية والتسويق الرقمي، إلى إدارة التصدير وسلاسل الإمداد ولين 6 سيجما. صُمم البرنامج خصيصًا لمعالجة المشكلات الموجودة في السوق، ويُقدَّم أونلاين بالكامل باللغتين العربية والإنجليزية على يد محاضرين متخصصين أكاديميًا وعمليًا.',
+      ar: 'CFDP برنامج شهادة احترافية يساعد المصانع وشركات التصنيع على الانتقال إلى الرقمية. يجمع في منهج تكاملي واحد 22 محورًا رئيسيًا في عمليات التصنيع والتصدير: من الفعاليات الافتراضية والتجارة الإلكترونية والتسويق الرقمي، إلى إدارة التصدير وسلاسل الإمداد ولين 6 سيجما. صُمم البرنامج خصيصًا لمعالجة المشكلات الموجودة في السوق، ويُقدَّم أونلاين بالكامل باللغتين العربية والإنجليزية على يد محاضرين متخصصين أكاديميًا وعمليًا.',
       en: 'CFDP is a professional certification program that helps factories and manufacturers move to digital. One integrated curriculum covers the 22 core axes of manufacturing and export, from virtual events, e-commerce and digital marketing to export management, supply chains and Lean Six Sigma. It is designed around the real problems factories face in the market, and delivered fully online in Arabic and English by lecturers who are specialists both academically and in practice.',
     } as L,
     vision: {
@@ -108,7 +108,7 @@ export const ui = {
     } as LL,
   },
   outlines: {
-    title: { ar: 'محاور البرنامج الـ٢٢', en: 'The 22 program axes' } as L,
+    title: { ar: 'محاور البرنامج الـ22', en: 'The 22 program axes' } as L,
     items: {
       ar: [
         'الفعاليات عبر الإنترنت: ماهيتها وأنواعها',
@@ -340,9 +340,9 @@ export const ui = {
       daily: { ar: 'الساعات اليومية', en: 'Daily hours' } as L,
     },
     rows: [
-      { track: { ar: 'المسار المكثف', en: 'Fast track' } as L, days: { ar: '٦ أيام (أسبوع واحد)', en: '6 days (one week)' } as L, total: '50', daily: { ar: '٨ ساعات يوميًا', en: '8 hours per day' } as L },
-      { track: { ar: 'المسار القياسي', en: 'Standard track' } as L, days: { ar: '١٢ يوم (أسبوعين)', en: '12 days (two weeks)' } as L, total: '50', daily: { ar: '٤ ساعات يوميًا', en: '4 hours per day' } as L },
-      { track: { ar: 'المسار المرن', en: 'Flexible track' } as L, days: { ar: 'كل سبت (٦ أسابيع)', en: 'Every Saturday (6 weeks)' } as L, total: '50', daily: { ar: '٨ ساعات يوميًا', en: '8 hours per day' } as L },
+      { track: { ar: 'المسار المكثف', en: 'Fast track' } as L, days: { ar: '6 أيام (أسبوع واحد)', en: '6 days (one week)' } as L, total: '50', daily: { ar: '8 ساعات يوميًا', en: '8 hours per day' } as L },
+      { track: { ar: 'المسار القياسي', en: 'Standard track' } as L, days: { ar: '12 يوم (أسبوعين)', en: '12 days (two weeks)' } as L, total: '50', daily: { ar: '4 ساعات يوميًا', en: '4 hours per day' } as L },
+      { track: { ar: 'المسار المرن', en: 'Flexible track' } as L, days: { ar: 'كل سبت (6 أسابيع)', en: 'Every Saturday (6 weeks)' } as L, total: '50', daily: { ar: '8 ساعات يوميًا', en: '8 hours per day' } as L },
     ],
   },
   pricing: {
@@ -371,7 +371,7 @@ export const ui = {
         name: { ar: 'خالد فاروق', en: 'Khaled Farouk' } as L,
         role: { ar: 'خبير تسويق واستراتيجيات', en: 'Marketing strategy' } as L,
         bio: {
-          ar: ['مدير تسويق بخبرة تزيد عن ١٢ عامًا', 'إجراء دراسات حالة ناجحة في العديد من المجالات: العقارات، التجزئة، التجارة الإلكترونية، التعليم', 'تأسيس شركات ناشئة ووضع أهداف تسويقية وتكوين فريق تسويق'],
+          ar: ['مدير تسويق بخبرة تزيد عن 12 عامًا', 'إجراء دراسات حالة ناجحة في العديد من المجالات: العقارات، التجزئة، التجارة الإلكترونية، التعليم', 'تأسيس شركات ناشئة ووضع أهداف تسويقية وتكوين فريق تسويق'],
           en: ['Marketing manager with 12+ years of experience', 'Successful case studies in real estate, retail, e-commerce and education', 'Established startups, set marketing goals and built marketing teams'],
         } as LL,
       },
@@ -380,7 +380,7 @@ export const ui = {
         name: { ar: 'سعد الألفي', en: 'Saad Alalfi' } as L,
         role: { ar: 'التجارة الإلكترونية والعلامات التجارية', en: 'E-commerce & branding' } as L,
         bio: {
-          ar: ['١٥ عامًا من الخبرة في إدارة المحتوى و٥ سنوات في التجارة الإلكترونية والعلامات التجارية وتسويق الشركات الناشئة', 'طوّر أول منتدى إلكتروني في ٢٠٠٤، وأسس متجر AM-DAHAB للتجارة الإلكترونية ومدونة El-Founder'],
+          ar: ['15 عامًا من الخبرة في إدارة المحتوى و5 سنوات في التجارة الإلكترونية والعلامات التجارية وتسويق الشركات الناشئة', 'طوّر أول منتدى إلكتروني في 2004، وأسس متجر AM-DAHAB للتجارة الإلكترونية ومدونة El-Founder'],
           en: ['15 years in content management and 5 years in e-commerce, branding and startup marketing', 'Built an e-forum in 2004, founded the AM-DAHAB e-commerce store and the El-Founder blog'],
         } as LL,
       },
@@ -389,7 +389,7 @@ export const ui = {
         name: { ar: 'صابرين مرسي', en: 'Sabreen Morsi' } as L,
         role: { ar: 'مؤسسة فارينا للخدمات التسويقية', en: 'Founder, Farinas Marketing Services' } as L,
         bio: {
-          ar: ['المديرة التنفيذية ومؤسسة شركة فاريناس للخدمات التسويقية بخبرة تزيد عن ١٨ عامًا', 'بكالوريوس الهندسة الطبية من جامعة القاهرة وماجستير إدارة الأعمال من الجامعة الأمريكية بالقاهرة', 'شاركت في العديد من المؤتمرات والندوات لرائدات الأعمال'],
+          ar: ['المديرة التنفيذية ومؤسسة شركة فاريناس للخدمات التسويقية بخبرة تزيد عن 18 عامًا', 'بكالوريوس الهندسة الطبية من جامعة القاهرة وماجستير إدارة الأعمال من الجامعة الأمريكية بالقاهرة', 'شاركت في العديد من المؤتمرات والندوات لرائدات الأعمال'],
           en: ['CEO and founder of Farinas Marketing Services with 18+ years’ experience', 'BSc in Medical Engineering from Cairo University and an MBA from the American University in Cairo', 'Speaker at many conferences and forums for women entrepreneurs'],
         } as LL,
       },
@@ -398,7 +398,7 @@ export const ui = {
         name: { ar: 'هيثم أحمد', en: 'Haitham Ahmed' } as L,
         role: { ar: 'الإعلانات الرقمية', en: 'Digital advertising' } as L,
         bio: {
-          ar: ['خبرة أكثر من ٨ سنوات في التسويق الإلكتروني وإدارة الحملات الإعلانية على منصات التواصل في مصر والوطن العربي', 'إعداد خطط التسويق وميزانيات الحملات الإعلانية'],
+          ar: ['خبرة أكثر من 8 سنوات في التسويق الإلكتروني وإدارة الحملات الإعلانية على منصات التواصل في مصر والوطن العربي', 'إعداد خطط التسويق وميزانيات الحملات الإعلانية'],
           en: ['8+ years in digital marketing and managing ad campaigns on all social platforms in Egypt and the Arab world', 'Digital marketing plans and campaign budgets'],
         } as LL,
       },
@@ -407,7 +407,7 @@ export const ui = {
         name: { ar: 'هناء المغربي', en: 'Hanaa Maghrabi' } as L,
         role: { ar: 'مديرة تسويق', en: 'Marketing manager' } as L,
         bio: {
-          ar: ['مدير تسويق بخبرة أكثر من ١٠ سنوات في السوق الخليجي والمصري', 'نجاحات بارزة لأكثر من ١٠٠ عميل في مصر والوطن العربي', 'أكثر من ٥٠٠ ساعة تدريب احترافية في التسويق والإعلان على منصات السوشيال ميديا'],
+          ar: ['مدير تسويق بخبرة أكثر من 10 سنوات في السوق الخليجي والمصري', 'نجاحات بارزة لأكثر من 100 عميل في مصر والوطن العربي', 'أكثر من 500 ساعة تدريب احترافية في التسويق والإعلان على منصات السوشيال ميديا'],
           en: ['Marketing manager with 10+ years in the Gulf and Egyptian markets', 'Remarkable results for 100+ clients in Egypt and the Arab world', '500+ training hours in marketing and social media advertising'],
         } as LL,
       },
@@ -416,7 +416,7 @@ export const ui = {
         name: { ar: 'أسماء متولي', en: 'Asmaa Metwally' } as L,
         role: { ar: 'التصدير وسلاسل الإمداد', en: 'Export & supply chain' } as L,
         bio: {
-          ar: ['خبرات تخطت ١٠ سنوات في التصدير وسلاسل الإمداد في صناعات مختلفة داخل مصر وخارجها', 'متخصصة في تحسين العمليات وتخطيط الأعمال والتصنيع الخالي من الهدر', 'بكالوريوس العلوم في الهندسة الميكانيكية'],
+          ar: ['خبرات تخطت 10 سنوات في التصدير وسلاسل الإمداد في صناعات مختلفة داخل مصر وخارجها', 'متخصصة في تحسين العمليات وتخطيط الأعمال والتصنيع الخالي من الهدر', 'بكالوريوس العلوم في الهندسة الميكانيكية'],
           en: ['10+ years in export and supply chains across industries in Egypt and abroad', 'Skilled in process improvement, business planning and lean manufacturing', 'BSc in Mechanical Engineering'],
         } as LL,
       },

@@ -13,9 +13,3 @@ export const langFromParam = (param: string | undefined): Lang => (param as Lang
 // For [...lang] routes: undefined → Arabic at root, 'en' → /en/.
 export const langPaths = () =>
   locales.map((lang) => ({ params: { lang: lang === defaultLang ? undefined : lang } }));
-
-// Arabic pages use Arabic-Indic digits (٢٢) to match the copy; phone numbers stay as written.
-export const num = (value: string | number, lang: Lang) =>
-  lang === 'ar'
-    ? String(value).replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[Number(d)]).replace(/,/g, '٬')
-    : String(value);
