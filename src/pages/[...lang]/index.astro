@@ -5,7 +5,7 @@ import TracksTable from '../../components/TracksTable.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import InstructorCard from '../../components/InstructorCard.astro';
 import { ui, site } from '../../i18n/content';
-import { langPaths, langFromParam, localePath, num } from '../../i18n/utils';
+import { langPaths, langFromParam, localePath } from '../../i18n/utils';
 
 export const getStaticPaths = langPaths;
 const lang = langFromParam(Astro.params.lang);
@@ -36,7 +36,7 @@ const h = ui.hero;
             {ui.stats.map((s, i) => (
               <div class={`flex flex-col gap-1 p-5 ${i % 2 ? 'border-s border-brand-100' : ''} ${i < 2 ? 'border-b border-brand-100' : ''}`}>
                 <dt class="order-2 text-sm text-ink/70">{s.label[lang]}</dt>
-                <dd class="order-1 text-4xl font-bold leading-none text-brand-600">{num(s.value, lang)}</dd>
+                <dd class="order-1 text-4xl font-bold leading-none text-brand-600">{s.value}</dd>
               </div>
             ))}
           </dl>
@@ -57,7 +57,7 @@ const h = ui.hero;
     <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {ui.why.items[lang].map((t, i) => (
         <li class="flex gap-4 rounded-xl border border-brand-100 p-5">
-          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-800">{num(i + 1, lang)}</span>
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-800">{i + 1}</span>
           <span class="text-sm leading-relaxed">{t}</span>
         </li>
       ))}
@@ -70,7 +70,7 @@ const h = ui.hero;
       <ol class="mt-8 grid gap-x-10 gap-y-2 text-sm sm:grid-cols-2">
         {ui.outlines.items[lang].map((t, i) => (
           <li class="flex gap-3 border-b border-brand-100 py-2.5">
-            <span class="w-6 shrink-0 font-semibold text-accent" dir="ltr">{num(String(i + 1).padStart(2, '0'), lang)}</span>
+            <span class="w-6 shrink-0 font-semibold text-accent" dir="ltr">{String(i + 1).padStart(2, '0')}</span>
             <span>{t}</span>
           </li>
         ))}

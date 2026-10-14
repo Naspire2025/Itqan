@@ -12,3 +12,6 @@
 - The full name is now translated on the Arabic version: "المحترف المعتمد في رقمنة المصانع" (`site.brandFull` is `{ ar, en }`).
 - Redesigned the home hero card: a white card with the CFDP mark and a "Professional certification" tag, a 2×2 stat grid aligned correctly in RTL and LTR, and tags for online plus both languages. The languages stat became "3 flexible tracks".
 - Arabic pages now show Arabic-Indic digits (٢٢، ٥٠، $٦٦٦) via a new `num()` helper in `src/i18n/utils.ts`. It covers stats, numbered lists, schedule days, hours, participants and prices. Phone numbers are unchanged. The schedule day badge now says "اليوم" on Arabic pages.
+
+## 2026-10-14 — English digits everywhere
+- Removed the Arabic-Indic `num()` helper. All numbers now use English digits (22, 50, $666) in both languages, including digits inside the Arabic copy in `src/i18n/content.ts`. The Arabic "اليوم" label on schedule days is kept.

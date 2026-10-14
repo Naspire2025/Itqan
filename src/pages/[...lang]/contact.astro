@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import { ui, site } from '../../i18n/content';
-import { langPaths, langFromParam, localePath, num } from '../../i18n/utils';
+import { langPaths, langFromParam, localePath } from '../../i18n/utils';
 export const getStaticPaths = langPaths;
 const lang = langFromParam(Astro.params.lang);
 const f = ui.contact.form;
@@ -20,7 +20,7 @@ const field = 'mt-1 w-full rounded-md border border-brand-100 bg-white px-3 py-2
         <label class="text-sm font-medium">{f.pkg[lang]}
           <select name="pkg" class={field}>
             <option value="">{f.unsure[lang]}</option>
-            {ui.pricing.rows.map((r) => <option value={r.name.en}>{r.name[lang]} ({num(r.people, lang)})</option>)}
+            {ui.pricing.rows.map((r) => <option value={r.name.en}>{r.name[lang]} ({r.people})</option>)}
           </select>
         </label>
         <label class="text-sm font-medium">{f.track[lang]}
