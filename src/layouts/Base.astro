@@ -6,7 +6,7 @@ import '@fontsource/ibm-plex-sans-arabic/500.css';
 import '@fontsource/ibm-plex-sans-arabic/700.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { dirOf, other } from '../i18n/utils';
+import { dirOf, localePath } from '../i18n/utils';
 import { site } from '../i18n/content';
 import type { Lang } from '../i18n/content';
 
@@ -14,7 +14,7 @@ interface Props { lang: Lang; title: string; description: string; path?: string;
 const { lang, title, description, path = '' } = Astro.props;
 const full = `${title} | ${site.short} · ${site.program}`;
 const base = 'https://www.itqan.live';
-const url = (l: Lang) => `${base}/${l}/${path ? path + '/' : ''}`;
+const url = (l: Lang) => `${base}${localePath(l, path)}`;
 ---
 <!doctype html>
 <html lang={lang} dir={dirOf(lang)}>

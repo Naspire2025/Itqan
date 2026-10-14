@@ -1,10 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import { ui, site, locales } from '../../i18n/content';
-import type { Lang } from '../../i18n/content';
-export const getStaticPaths = () => locales.map((lang) => ({ params: { lang } }));
-const lang = Astro.params.lang as Lang;
+import { ui, site } from '../../i18n/content';
+import { langPaths, langFromParam, localePath } from '../../i18n/utils';
+export const getStaticPaths = langPaths;
+const lang = langFromParam(Astro.params.lang);
 const f = ui.contact.form;
 const field = 'mt-1 w-full rounded-md border border-brand-100 bg-white px-3 py-2.5 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30';
 ---
