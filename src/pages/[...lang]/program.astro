@@ -2,10 +2,10 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import CtaBand from '../../components/CtaBand.astro';
-import { ui, site, locales } from '../../i18n/content';
-import type { Lang } from '../../i18n/content';
-export const getStaticPaths = () => locales.map((lang) => ({ params: { lang } }));
-const lang = Astro.params.lang as Lang;
+import { ui, site } from '../../i18n/content';
+import { langPaths, langFromParam, localePath } from '../../i18n/utils';
+export const getStaticPaths = langPaths;
+const lang = langFromParam(Astro.params.lang);
 const s = ui.schedule;
 ---
 <Base lang={lang} title={ui.nav.program[lang]} description={ui.hero.sub[lang]} path="program">

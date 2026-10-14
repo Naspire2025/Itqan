@@ -1,10 +1,11 @@
 ---
 import { site, ui } from '../i18n/content';
 import type { Lang } from '../i18n/content';
+import { localePath } from '../i18n/utils';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const n = ui.nav;
-const to = (p: string) => `/${lang}/${p ? p + '/' : ''}`;
+const to = (p: string) => localePath(lang, p);
 ---
 <footer class="bg-brand-900 text-white/80">
   <div class="container-x grid gap-10 py-14 md:grid-cols-3">

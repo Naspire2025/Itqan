@@ -1,7 +1,7 @@
 ---
 import { ui } from '../i18n/content';
 import type { Lang } from '../i18n/content';
-import { other } from '../i18n/utils';
+import { other, localePath } from '../i18n/utils';
 interface Props { lang: Lang; path: string }
 const { lang, path } = Astro.props;
 const n = ui.nav;
@@ -9,8 +9,8 @@ const links = [
   ['', n.home], ['program', n.program], ['pricing', n.pricing],
   ['instructors', n.instructors], ['accreditations', n.accreditations], ['contact', n.contact],
 ] as const;
-const to = (p: string) => `/${lang}/${p ? p + '/' : ''}`;
-const switchHref = `/${other(lang)}/${path ? path + '/' : ''}`;
+const to = (p: string) => localePath(lang, p);
+const switchHref = localePath(other(lang), path);
 const active = (p: string) => p === path;
 ---
 <header class="sticky top-0 z-40 border-b border-brand-100 bg-white/90 backdrop-blur">
