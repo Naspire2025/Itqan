@@ -6,3 +6,8 @@
 - Added the CFDP logo set in `public/brand/` (teal mark, white mark, full lockup). It is used in the header, footer and favicon.
 - No domain for now: removed `site` from `astro.config.mjs`, plus canonical/hreflang URLs.
 - The contact form now opens WhatsApp (Jordan number) with the request prefilled, instead of email.
+
+## 2026-10-14 — CFDP About copy and hero card redesign
+- Rewrote About, Vision and Mission (AR/EN) around the CFDP program itself. The source is the brochure's program, "Why" and outputs pages; the academy wording is gone.
+- The full name is now translated on the Arabic version: "المحترف المعتمد في رقمنة المصانع" (`site.brandFull` is `{ ar, en }`).
+- Redesigned the home hero card: a white card with the CFDP mark and a "Professional certification" tag, a 2×2 stat grid aligned correctly in RTL and LTR, and tags for online plus both languages. The languages stat became "3 flexible tracks".
