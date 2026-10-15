@@ -33,7 +33,7 @@ export const ui = {
     switch: { ar: 'English', en: 'العربية' },
   },
   hero: {
-    eyebrow: { ar: 'CFDP · تعلّم. تدرّب. اعمل.', en: 'CFDP · Learn. Train. Work.' } as L,
+    eyebrow: { ar: 'CFDP · رقمنة. اعتماد. قيادة.', en: 'CFDP · Digitalize. Certify. Lead.' } as L,
     title: { ar: 'المصانع تنتقل إلى الرقمية', en: 'Factories moving to digital' } as L,
     sub: {
       ar: 'برنامج أونلاين متكامل للتحول الرقمي في التصنيع والتصدير: 22 محورًا من التجارة الإلكترونية والتسويق الرقمي حتى سلاسل الإمداد ولين 6 سيجما.',
@@ -457,7 +457,6 @@ export const ui = {
     whatsapp: { ar: 'واتساب', en: 'WhatsApp' } as L,
   },
   footer: {
-    tagline: { ar: 'تعلّم. تدرّب. اعمل.', en: 'Learn. Train. Work.' } as L,
     rights: { ar: 'جميع الحقوق محفوظة', en: 'All rights reserved' } as L,
   },
   cta: {

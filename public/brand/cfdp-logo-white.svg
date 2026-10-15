@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="300 135 1005 385" role="img" aria-label="CFDP — Digitalize. Certify. Lead.">
+  <g fill="#ffffff">
+    <path d="M547.1,215.9 A117.5,117.5 0 1 0 547.1,354.1" fill="none" stroke="#ffffff" stroke-width="55"/>
+    <path d="M600,148 H793 V195 H655 V265 H785 V312 H655 V422 H600 Z"/>
+    <path fill-rule="evenodd" d="M820,148 H930 A135,137 0 0 1 930,422 H820 Z M873,195 H930 A88,90 0 0 1 930,375 H873 Z"/>
+    <path fill-rule="evenodd" d="M1098,148 H1210 A88,87.5 0 0 1 1210,323 H1150 V422 H1098 Z M1150,195 H1210 A41,41 0 0 1 1210,277 H1150 Z"/>
+  </g>
+  <text x="316" y="505" textLength="964" lengthAdjust="spacing" fill="rgba(255,255,255,0.75)" font-family="Montserrat, 'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="600">DIGITALIZE. CERTIFY. LEAD.</text>
+</svg>

@@ -15,3 +15,8 @@
 
 ## 2026-10-14 — English digits everywhere
 - Removed the Arabic-Indic `num()` helper. All numbers now use English digits (22, 50, $666) in both languages, including digits inside the Arabic copy in `src/i18n/content.ts`. The Arabic "اليوم" label on schedule days is kept.
+
+## 2026-10-15 — Client CFDP logo
+- Replaced the iba-style mark with the client's CFDP logo: navy uppercase "CFDP" and the "DIGITALIZE. CERTIFY. LEAD." tagline. It is recreated as SVG in `public/brand/` in four versions: `cfdp-mark` (navy) and `cfdp-mark-white`, plus `cfdp-logo` and `cfdp-logo-white` with the tagline. The tagline is a `textLength`-locked `<text>` element, not outlines.
+- The header, hero card and favicon use the navy mark. The footer uses the white logo with the tagline.
+- The hero eyebrow slogan changed from the academy's "Learn. Train. Work." to "Digitalize. Certify. Lead." / "رقمنة. اعتماد. قيادة.".
