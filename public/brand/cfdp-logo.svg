@@ -1,13 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 262" role="img" aria-label="cfdp — Certified Factory Digitalization Professional">
-  <g fill="none" stroke="#4a9ca0" stroke-width="30">
-    <path d="M81.8,87.5 A35,35 0 1 0 81.8,132.5"/>
-    <path d="M135,160 V62 A26,26 0 0 1 161,36 H178"/>
-    <path d="M113,82 H170"/>
-    <circle cx="225" cy="110" r="35"/>
-    <path d="M260,15 V160"/>
-    <circle cx="345" cy="110" r="35"/>
-    <path d="M310,60 V205"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="300 135 1005 385" role="img" aria-label="CFDP — Digitalize. Certify. Lead.">
+  <g fill="#13285a">
+    <path d="M547.1,215.9 A117.5,117.5 0 1 0 547.1,354.1" fill="none" stroke="#13285a" stroke-width="55"/>
+    <path d="M600,148 H793 V195 H655 V265 H785 V312 H655 V422 H600 Z"/>
+    <path fill-rule="evenodd" d="M820,148 H930 A135,137 0 0 1 930,422 H820 Z M873,195 H930 A88,90 0 0 1 930,375 H873 Z"/>
+    <path fill-rule="evenodd" d="M1098,148 H1210 A88,87.5 0 0 1 1210,323 H1150 V422 H1098 Z M1150,195 H1210 A41,41 0 0 1 1210,277 H1150 Z"/>
   </g>
-  <path fill="#e8662b" d="M3,15 H26 L45,36 L26,57 H3 L22,36 Z"/>
-  <text x="200" y="252" text-anchor="middle" fill="#e8662b" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="18.2" font-weight="600">Certified Factory Digitalization Professional</text>
+  <text x="316" y="505" textLength="964" lengthAdjust="spacing" fill="#6b7079" font-family="Montserrat, 'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="600">DIGITALIZE. CERTIFY. LEAD.</text>
 </svg>
