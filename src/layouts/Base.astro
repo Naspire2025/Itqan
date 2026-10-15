@@ -6,13 +6,14 @@ import '@fontsource/ibm-plex-sans-arabic/500.css';
 import '@fontsource/ibm-plex-sans-arabic/700.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { dirOf } from '../i18n/utils';
+import { dirOf, localePath } from '../i18n/utils';
 import { site } from '../i18n/content';
 import type { Lang } from '../i18n/content';
 
 interface Props { lang: Lang; title: string; description: string; path?: string; }
 const { lang, title, description, path = '' } = Astro.props;
 const full = `${title} | ${site.brand}`;
+const url = (l: Lang) => new URL(localePath(l, path), Astro.site).href;
 ---
 <!doctype html>
 <html lang={lang} dir={dirOf(lang)}>
@@ -22,9 +23,17 @@ const full = `${title} | ${site.brand}`;
     <title>{full}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/brand/cfdp-mark.svg" type="image/svg+xml" />
+    <link rel="canonical" href={url(lang)} />
+    <link rel="alternate" hreflang="ar" href={url('ar')} />
+    <link rel="alternate" hreflang="en" href={url('en')} />
+    <link rel="alternate" hreflang="x-default" href={url('ar')} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:title" content={full} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={url(lang)} />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:image" content={new URL('/brand/og-cfdp.png', Astro.site).href} />
     <meta property="og:locale" content={lang === 'ar' ? 'ar_EG' : 'en_US'} />
     <meta name="theme-color" content="#4a9ca0" />
   </head>
