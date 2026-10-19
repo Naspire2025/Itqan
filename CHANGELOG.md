@@ -21,3 +21,9 @@
 - The header, hero card and favicon use the navy mark. The footer uses the white logo with the tagline.
 - The hero eyebrow slogan changed from the academy's "Learn. Train. Work." to "Digitalize. Certify. Lead." / "رقمنة. اعتماد. قيادة.".
 - The header (now `h-20`) and the hero card use the full logo with the "DIGITALIZE. CERTIFY. LEAD." tagline, as the logo is designed. Only the favicon keeps the mark alone. Nav links and the card badge no longer wrap.
+
+## 2026-10-15 — Domain: www.cfdp.co.uk
+- Set `site: 'https://www.cfdp.co.uk'` in `astro.config.mjs`. Restored the canonical, hreflang (ar / en / x-default) and `og:url` tags in `src/layouts/Base.astro`.
+- Added a sitemap (`@astrojs/sitemap`, with ar/en alternates) and `public/robots.txt` pointing to it.
+- Added a social share image, `public/brand/og-cfdp.png` (1200×630), used as `og:image`.
+- Removed the unused Astro default favicons and renamed the package to `cfdp-site`.
