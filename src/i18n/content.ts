@@ -433,6 +433,16 @@ export const ui = {
     currentList: [
       { name: 'Asia Masters Center', note: { ar: 'Professional Training · Co. Reg. 1031079-H', en: 'Professional Training · Co. Reg. 1031079-H' } as L },
     ],
+    partnerBodiesTitle: {
+      ar: 'جهات اعتماد مركز آسيا ماسترز',
+      en: 'Asia Masters Center is accredited by',
+    } as L,
+    // Source: asiamasters.org/en accreditation section.
+    partnerBodies: [
+      { logo: 'hrdf', name: 'HRDF Malaysia', full: { ar: 'صندوق تنمية الموارد البشرية – ماليزيا', en: 'Human Resources Development Fund, Malaysia' } as L },
+      { logo: 'iftdo', name: 'IFTDO', full: { ar: 'الاتحاد الدولي لمنظمات التدريب والتطوير', en: 'International Federation of Training and Development Organisations' } as L },
+      { logo: 'ssm', name: 'SSM', full: { ar: 'هيئة الشركات الماليزية', en: 'Companies Commission of Malaysia' } as L },
+    ],
     progressList: ['The CPD Certification Service', 'Napoleon Hill Training Corporation', 'ISCN'],
     certTitle: { ar: 'الشهادة الممنوحة', en: 'The certificate' } as L,
     certBody: {

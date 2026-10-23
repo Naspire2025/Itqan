@@ -23,6 +23,21 @@ const a = ui.accreditations;
       ))}
     </ul>
 
+    <div class="mt-6 rounded-xl bg-brand-50 p-6 sm:p-8">
+      <h3 class="font-semibold text-brand-900">{a.partnerBodiesTitle[lang]}</h3>
+      <ul class="mt-6 grid gap-6 sm:grid-cols-3">
+        {a.partnerBodies.map((b) => (
+          <li class="flex flex-col items-center text-center">
+            <span class="h-28 w-28 overflow-hidden rounded-full bg-white shadow-sm ring-1 ring-brand-100">
+              <img src={`/images/accreditations/${b.logo}.png`} alt={b.name} class="h-full w-full scale-[1.06] object-cover" loading="lazy" />
+            </span>
+            <p class="mt-4 font-bold text-brand-900" dir="ltr">{b.name}</p>
+            <p class="mt-1 max-w-[16rem] text-sm text-ink/70">{b.full[lang]}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
     <h2 class="mt-12 text-xl font-bold text-brand-900">{a.progress[lang]}</h2>
     <p class="mt-1 text-sm text-ink/60">{a.progressNote[lang]}</p>
     <ul class="mt-5 grid gap-4 sm:grid-cols-3">
