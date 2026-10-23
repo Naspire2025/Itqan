@@ -27,3 +27,6 @@
 - Added a sitemap (`@astrojs/sitemap`, with ar/en alternates) and `public/robots.txt` pointing to it.
 - Added a social share image, `public/brand/og-cfdp.png` (1200×630), used as `og:image`.
 - Removed the unused Astro default favicons and renamed the package to `cfdp-site`.
+
+## 2026-10-23 — Asia Masters Center accreditations
+- The accreditations page now has an "Asia Masters Center is accredited by" panel with HRDF Malaysia, IFTDO and SSM (Companies Commission of Malaysia). Logos are in `public/images/accreditations/` and names in AR/EN are in `ui.accreditations.partnerBodies`. Source: asiamasters.org/en.
