@@ -13,6 +13,7 @@ export const site = {
     ar: 'المحترف المعتمد في رقمنة المصانع',
     en: 'Certified Factory Digitalization Professional',
   } as L,
+  website: 'www.cfdp.co.uk',
   phones: [
     { country: { ar: 'الأردن', en: 'Jordan' } as L, number: '+962 7 8500 0401', wa: '962785000401' },
     { country: { ar: 'الإمارات', en: 'UAE' } as L, number: '+971 55 777 9798', wa: '971557779798' },
@@ -61,7 +62,7 @@ export const ui = {
     items: {
       ar: [
         'منهج تكاملي مصمم خصيصًا لمعالجة المشكلات الموجودة بالسوق',
-        'البرنامج أونلاين بالكامل عن طريق سيستم أونلاين متكامل خاص بالأكاديمية',
+        'البرنامج أونلاين بالكامل عبر منصة تعليمية متكاملة خاصة بالبرنامج',
         'محاضرون متخصصون أكاديميًا وعمليًا',
         'باقات مرنة على حسب حجم المؤسسة',
         'تسعير مميز بالنسبة لمحتوى البرنامج',
@@ -70,7 +71,7 @@ export const ui = {
       ],
       en: [
         'An integrative approach designed specifically to address the problems in the market',
-        'Completely online through the academy’s integrated online system',
+        'Completely online through the program’s own integrated learning platform',
         'Academically and practically specialized lecturers',
         'Flexible packages according to the size of the institution',
         'Distinctive pricing for the content of the program',
@@ -472,5 +473,26 @@ export const ui = {
   cta: {
     title: { ar: 'جاهز لنقل مصنعك إلى الرقمية؟', en: 'Ready to take your factory digital?' } as L,
     sub: { ar: 'تواصل مع مستشار البرنامج لاختيار الباقة والمسار المناسبين.', en: 'Speak to a program advisor to pick the right package and track.' } as L,
+  },
+  // Print brochure (/brochure/). Program intro adapted from the original brochure's program page.
+  brochure: {
+    programTitle: { ar: 'البرنامج', en: 'The program' } as L,
+    programIntro: {
+      ar: [
+        'أصبح التحول الرقمي ضرورة لكل المؤسسات والشركات التي تسعى للتوسع والانتشار والربح، بالإضافة إلى أن معظم الفعاليات والمعارض تحولت إلى لقاءات مرئية عبر الإنترنت، الأمر الذي يتطلب من كافة الفئات المعنية إجادة المشاركة في الفعاليات المنعقدة عبر الإنترنت (ملتقى افتراضي) وإدارة عمليات التواصل مع العملاء والشركاء المحتملين.',
+        'ولما أصبحت التجارة الإلكترونية الورقة الرابحة لقطاع الشركات والمصانع، فقد أصبح من الواجب تغيير المفاهيم القديمة في الإعلان والتسويق للمنتجات، والعمل على فتح أسواق جديدة تعزز حركة البيع والشراء. فالإنترنت هو أكبر سوق عرفه التاريخ، ومع انخفاض تكلفته وسهولة التعامل معه بات لزامًا على جميع الشركات والمصانع أن تأخذ دورها في سباق التحول الرقمي وتحجز مكانًا متميزًا لها فيه.',
+        'وتعتبر التجارة الإلكترونية المحور الأساسي للتجارة على مستوى العالم، مع نمو يصل إلى مليارات الدولارات سنويًا، وأصبحت المتاجر الإلكترونية من أهم القنوات البيعية والتسويقية ووسيلة ربحية كبيرة تحقق انتشارًا واسعًا للعلامات التجارية حول العالم.',
+      ],
+      en: [
+        'Digital transformation has become a necessity for every institution and company that seeks to expand, spread and profit. Most events and exhibitions have turned into virtual meetings on the internet, which requires everyone involved to master taking part in online events (virtual forums) and managing communication with customers and potential partners.',
+        'As e-commerce has become the trump card for companies and factories, old concepts of advertising and marketing products must change, and new markets must be opened to grow buying and selling. The internet is the largest market in history, low in cost and easy to deal with, so every company and factory must take its role in the race of digital transformation and reserve a distinguished place in it.',
+        'E-commerce is the main axis of world trade, growing by billions of dollars every year. Online stores have become one of the most important sales and marketing channels and a great means of profit, giving brands wide reach around the world.',
+      ],
+    } as LL,
+    contactTitle: {
+      ar: 'تواصل مع أحد مستشاري البرنامج للحصول على مزيد من المعلومات',
+      en: 'Contact a program advisor for more information',
+    } as L,
+    website: { ar: 'الموقع الإلكتروني', en: 'Website' } as L,
   },
 };

@@ -1,0 +1,385 @@
+---
+// Print brochure: A4 landscape spreads, English on the left and Arabic on the right,
+// mirroring the original program brochure. Export with `npm run brochure`.
+import '@fontsource-variable/inter';
+import '@fontsource/ibm-plex-sans-arabic/400.css';
+import '@fontsource/ibm-plex-sans-arabic/500.css';
+import '@fontsource/ibm-plex-sans-arabic/700.css';
+import { ui, site } from '../i18n/content';
+import type { Lang } from '../i18n/content';
+
+const sides: Lang[] = ['en', 'ar'];
+const dir = (l: Lang) => (l === 'ar' ? 'rtl' : 'ltr');
+const b = ui.brochure;
+const people = ui.instructors.people;
+const instructorPairs = [people.slice(0, 2), people.slice(2, 4), people.slice(4, 6)];
+const dayImages = ['day1', 'day2', 'day3', null, 'day5', 'day6'];
+const days = ui.schedule.days.map((d, i) => ({ ...d, n: i + 1, img: dayImages[i] }));
+const dayPairs = [days.slice(0, 2), days.slice(2, 4), days.slice(4, 6)];
+let page = 0;
+const next = () => String(++page).padStart(2, '0');
+// Content pages are numbered from 01 after the cover, like the original.
+const pageNos = Array.from({ length: 14 }, next);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>CFDP brochure</title>
+    <link rel="icon" href="/brand/cfdp-mark.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <!-- Cover -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half cover" lang={l} dir={dir(l)}>
+          <div class="cover-top"><img src="/brand/cfdp-logo.svg" alt="CFDP" /></div>
+          <div class="cover-band">
+            <p class="cover-acronym">{site.brand}</p>
+            <p class="cover-full">{site.brandFull[l]}</p>
+          </div>
+          <img class="cover-art" src="/brochure/img/cover.jpg" alt="" />
+          <h1 class="cover-title">{ui.hero.title[l]}</h1>
+        </div>
+      ))}
+    </section>
+
+    <!-- About -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half" lang={l} dir={dir(l)}>
+          <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+          <main>
+            <h2>{ui.about.title[l]}</h2>
+            <p>{ui.about.body[l]}</p>
+            <h3>{ui.about.vision.title[l]}</h3>
+            <p>{ui.about.vision.body[l]}</p>
+            <h3>{ui.about.mission.title[l]}</h3>
+            <p>{ui.about.mission.body[l]}</p>
+          </main>
+          <footer class="ft">{pageNos[0]}</footer>
+        </div>
+      ))}
+    </section>
+
+    <!-- Countries -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half" lang={l} dir={dir(l)}>
+          <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+          <main>
+            <h2>{ui.countries.title[l]}</h2>
+            <ul class="chips">{ui.countries.list[l].map((c) => <li>{c}</li>)}</ul>
+            <img class="art wide" src="/brochure/img/map.jpg" alt="" />
+          </main>
+          <footer class="ft">{pageNos[1]}</footer>
+        </div>
+      ))}
+    </section>
+
+    <!-- Program -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half" lang={l} dir={dir(l)}>
+          <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+          <main class="split">
+            <div>
+              <h2>{b.programTitle[l]}</h2>
+              {b.programIntro[l].map((t) => <p>{t}</p>)}
+            </div>
+            <div class="stack">
+              <img class="art" src="/brochure/img/program-1.jpg" alt="" />
+              <img class="art" src="/brochure/img/program-2.jpg" alt="" />
+            </div>
+          </main>
+          <footer class="ft">{pageNos[2]}</footer>
+        </div>
+      ))}
+    </section>
+
+    <!-- 22 axes -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half" lang={l} dir={dir(l)}>
+          <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+          <main>
+            <h2>{ui.outlines.title[l]}</h2>
+            <ol class="axes">
+              {ui.outlines.items[l].map((t, i) => <li><span>{String(i + 1).padStart(2, '0')}</span>{t}</li>)}
+            </ol>
+          </main>
+          <footer class="ft">{pageNos[3]}</footer>
+        </div>
+      ))}
+    </section>
+
+    <!-- Outcomes -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half" lang={l} dir={dir(l)}>
+          <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+          <main>
+            <h2>{ui.outcomes.title[l]}</h2>
+            <ul class="ticks">{ui.outcomes.items[l].map((t) => <li>{t}</li>)}</ul>
+            <img class="art wide short" src="/brochure/img/outputs.jpg" alt="" />
+          </main>
+          <footer class="ft">{pageNos[4]}</footer>
+        </div>
+      ))}
+    </section>
+
+    <!-- Includes, tracks, pricing -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half" lang={l} dir={dir(l)}>
+          <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+          <main>
+            <h2>{ui.includes.title[l]}</h2>
+            <ul class="chips">{ui.includes.items[l].map((t) => <li>{t}</li>)}</ul>
+            <h3>{ui.tracks.title[l]}</h3>
+            <table>
+              <thead><tr>
+                <th>{ui.tracks.headers.track[l]}</th><th>{ui.tracks.headers.days[l]}</th>
+                <th>{ui.tracks.headers.total[l]}</th><th>{ui.tracks.headers.daily[l]}</th>
+              </tr></thead>
+              <tbody>{ui.tracks.rows.map((r) => (
+                <tr><th>{r.track[l]}</th><td>{r.days[l]}</td><td>{r.total}</td><td>{r.daily[l]}</td></tr>
+              ))}</tbody>
+            </table>
+            <h3>{ui.pricing.title[l]}</h3>
+            <table>
+              <thead><tr>
+                <th>{ui.pricing.headers.pkg[l]}</th><th>{ui.pricing.headers.people[l]}</th>
+                <th>{ui.pricing.headers.fee[l]}</th><th>{ui.pricing.headers.total[l]}</th>
+              </tr></thead>
+              <tbody>{ui.pricing.rows.map((r) => (
+                <tr><th>{r.name[l]}</th><td dir="ltr">{r.people}</td><td dir="ltr">${r.fee}</td><td dir="ltr">${r.total}</td></tr>
+              ))}</tbody>
+            </table>
+            <p class="note">{ui.pricing.sub[l]}</p>
+          </main>
+          <footer class="ft">{pageNos[5]}</footer>
+        </div>
+      ))}
+    </section>
+
+    <!-- Instructors -->
+    {instructorPairs.map((pair, pi) => (
+      <section class="sheet">
+        {sides.map((l) => (
+          <div class="half" lang={l} dir={dir(l)}>
+            <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+            <main>
+              <h2 class="band">{ui.instructors.title[l]}</h2>
+              {pair.map((p) => (
+                <article class="person">
+                  <img src={`/images/instructors/${p.slug}.png`} alt={p.name[l]} />
+                  <div>
+                    <h3>{p.name[l]}</h3>
+                    <p class="role">{p.role[l]}</p>
+                    <ul>{p.bio[l].map((t) => <li>{t}</li>)}</ul>
+                  </div>
+                </article>
+              ))}
+            </main>
+            <footer class="ft">{pageNos[6 + pi]}</footer>
+          </div>
+        ))}
+      </section>
+    ))}
+
+    <!-- Schedule -->
+    {dayPairs.map((pair, pi) => (
+      <section class="sheet">
+        {sides.map((l) => (
+          <div class="half" lang={l} dir={dir(l)}>
+            <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+            <main>
+              <h2 class="band">{ui.schedule.title[l]}</h2>
+              {pair.map((d) => (
+                <article class="day">
+                  <h3><span class="badge">{ui.schedule.dayLabel[l]} {d.n}</span>{d.title[l]}</h3>
+                  <ul>{d.items[l].map((t: string) => <li>{t}</li>)}</ul>
+                  {d.img && <img class="art day-art" src={`/brochure/img/${d.img}.jpg`} alt="" />}
+                </article>
+              ))}
+            </main>
+            <footer class="ft">{pageNos[9 + pi]}</footer>
+          </div>
+        ))}
+      </section>
+    ))}
+
+    <!-- Why CFDP -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half" lang={l} dir={dir(l)}>
+          <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+          <main>
+            <h2>{ui.why.title[l]}</h2>
+            <p class="lead">{ui.why.lead[l]}</p>
+            <ol class="why">{ui.why.items[l].map((t, i) => <li><span>{i + 1}</span>{t}</li>)}</ol>
+          </main>
+          <footer class="ft">{pageNos[12]}</footer>
+        </div>
+      ))}
+    </section>
+
+    <!-- Accreditations -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half" lang={l} dir={dir(l)}>
+          <header class="hd"><img src="/brand/cfdp-mark.svg" alt="CFDP" /></header>
+          <main>
+            <h2 class="band">{ui.accreditations.title[l]}</h2>
+            <h3>{ui.accreditations.current[l]}</h3>
+            {ui.accreditations.currentList.map((c) => (
+              <p class="amc"><bdi dir="ltr"><strong>{c.name}</strong> · {c.note[l]}</bdi></p>
+            ))}
+            <p class="sub">{ui.accreditations.partnerBodiesTitle[l]}</p>
+            <ul class="bodies">
+              {ui.accreditations.partnerBodies.map((x) => (
+                <li><img src={`/images/accreditations/${x.logo}.png`} alt={x.name} /><strong dir="ltr">{x.name}</strong><span>{x.full[l]}</span></li>
+              ))}
+            </ul>
+            <h3>{ui.accreditations.progress[l]}</h3>
+            <ul class="pending">{ui.accreditations.progressList.map((n) => <li dir="ltr">{n}</li>)}</ul>
+            <p class="note">{ui.accreditations.progressNote[l]}</p>
+            <h3>{ui.accreditations.certTitle[l]}</h3>
+            <p>{ui.accreditations.certBody[l]}</p>
+          </main>
+          <footer class="ft">{pageNos[13]}</footer>
+        </div>
+      ))}
+    </section>
+
+    <!-- Back cover -->
+    <section class="sheet">
+      {sides.map((l) => (
+        <div class="half back" lang={l} dir={dir(l)}>
+          <img class="back-logo" src="/brand/cfdp-logo.svg" alt="CFDP – Digitalize. Certify. Lead." />
+          <p class="back-title">{b.contactTitle[l]}</p>
+          <dl class="contacts">
+            {site.phones.map((p) => (<>
+              <dt>{p.country[l]}</dt><dd dir="ltr">{p.number}</dd>
+            </>))}
+            <dt>{b.website[l]}</dt><dd dir="ltr">{site.website}</dd>
+          </dl>
+        </div>
+      ))}
+    </section>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --navy: #13285a;
+    --teal: #3a8084;
+    --teal-soft: #eef7f7;
+    --teal-line: #d6ecec;
+    --orange: #e8662b;
+    --ink: #0f2a2d;
+    --muted: #5b6b6d;
+  }
+  @page { size: 297mm 210mm; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #8a9a9b;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  [lang='en'] { font-family: 'Inter Variable', Arial, sans-serif; }
+  [lang='ar'] { font-family: 'IBM Plex Sans Arabic', 'Inter Variable', sans-serif; }
+
+  .sheet {
+    width: 297mm; height: 210mm; margin: 8mm auto; background: #fff;
+    display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;
+    break-after: page;
+  }
+  @media print { body { background: #fff; } .sheet { margin: 0; } }
+
+  .half {
+    position: relative; height: 210mm; padding: 10mm 12mm 0;
+    display: grid; grid-template-rows: auto 1fr auto; overflow: hidden;
+  }
+  .half + .half { border-inline-start: 0.3mm solid var(--teal-line); }
+  .hd { padding-bottom: 3mm; border-bottom: 0.4mm solid var(--teal); margin-bottom: 6mm; }
+  .hd img { height: 6.5mm; display: block; }
+  main { overflow: hidden; padding-bottom: 4mm; font-size: 8.6pt; line-height: 1.55; }
+  [lang='ar'] main { font-size: 9pt; line-height: 1.7; }
+  .ft { border-top: 0.4mm solid var(--teal); padding: 2mm 0 6mm; font-size: 7.5pt; color: var(--teal); }
+
+  h2 { font-size: 17pt; line-height: 1.2; color: var(--navy); margin: 0 0 4mm; font-weight: 700; }
+  h2::after { content: ''; display: block; width: 12mm; height: 0.8mm; background: var(--orange); margin-top: 2.5mm; }
+  h2.band { background: var(--teal); color: #fff; padding: 2.5mm 5mm; border-radius: 1.5mm; font-size: 14pt; }
+  h2.band::after { display: none; }
+  h3 { font-size: 10.5pt; color: var(--navy); margin: 5mm 0 1.5mm; }
+  p { margin: 0 0 2.5mm; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+
+  .split { display: grid; grid-template-columns: 1.35fr 1fr; gap: 6mm; }
+  .stack { display: grid; gap: 4mm; align-content: start; padding-top: 12mm; }
+  .art { width: 100%; border-radius: 2mm; object-fit: cover; display: block; }
+  .art.wide { margin-top: 6mm; max-height: 82mm; }
+  .art.wide.short { max-height: 52mm; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 2mm; }
+  .chips li { background: var(--teal-soft); color: var(--navy); border-radius: 10mm; padding: 1.2mm 3.5mm; font-weight: 500; }
+
+  .axes { columns: 2; column-gap: 6mm; }
+  .axes li { break-inside: avoid; display: flex; gap: 2.5mm; padding: 1.3mm 0; border-bottom: 0.25mm solid var(--teal-line); font-size: 8.2pt; line-height: 1.35; }
+  .axes span { color: var(--orange); font-weight: 700; min-width: 5mm; }
+
+  .ticks, .person ul, .day ul { list-style: disc; padding-inline-start: 4.5mm; }
+  .ticks li, .person li, .day li { margin-bottom: 1.2mm; padding-inline-start: 0.5mm; }
+  .ticks li::marker, .person li::marker, .day li::marker { color: var(--teal); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8pt; margin-bottom: 1mm; }
+  thead th { background: var(--teal); color: #fff; font-weight: 600; padding: 1.8mm 2mm; text-align: start; }
+  tbody th, tbody td { padding: 1.6mm 2mm; text-align: start; border-bottom: 0.25mm solid var(--teal-line); }
+  tbody th { color: var(--navy); }
+  tbody tr:nth-child(even) { background: var(--teal-soft); }
+  .note { font-size: 7.5pt; color: var(--muted); margin-top: 2mm; }
+
+  .person { display: grid; grid-template-columns: 26mm 1fr; gap: 5mm; margin-top: 7mm; }
+  .person img { width: 26mm; height: 26mm; border-radius: 50%; object-fit: cover; object-position: top; background: var(--teal-soft); }
+  .person h3 { margin: 0; font-size: 12pt; }
+  .role { color: var(--orange); font-weight: 600; margin-bottom: 2mm; }
+
+  .day { margin-top: 5mm; }
+  .day h3 { display: flex; align-items: center; gap: 3mm; margin: 0 0 2mm; }
+  .badge { background: var(--navy); color: #fff; border-radius: 1.5mm; padding: 0.8mm 2.5mm; font-size: 8pt; white-space: nowrap; }
+  .day-art { height: 24mm; margin-top: 2.5mm; }
+
+  .lead { font-size: 11pt; color: var(--navy); font-weight: 600; margin-bottom: 5mm; }
+  .why li { display: flex; gap: 3.5mm; align-items: flex-start; padding: 2.2mm 0; border-bottom: 0.25mm solid var(--teal-line); font-size: 9.2pt; }
+  .why span { flex: none; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--teal-soft); color: var(--navy); font-weight: 700; display: grid; place-items: center; font-size: 8pt; }
+
+  .sub { color: var(--muted); font-size: 8pt; margin: 3mm 0 2mm; }
+  .bodies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; text-align: center; }
+  .bodies li { display: flex; flex-direction: column; align-items: center; gap: 1mm; font-size: 7.2pt; line-height: 1.3; color: var(--muted); }
+  .bodies img { width: 17mm; height: 17mm; border-radius: 50%; object-fit: cover; transform: scale(1.04); }
+  .bodies strong { color: var(--navy); font-size: 8.5pt; }
+  .pending { display: flex; flex-wrap: wrap; gap: 2mm; }
+  .pending li { border: 0.3mm dashed var(--teal); border-radius: 1.5mm; padding: 1.2mm 3mm; font-size: 8pt; color: var(--muted); }
+
+  .cover { padding: 0; grid-template-rows: auto auto 1fr auto; background: linear-gradient(180deg, #ffffff 0%, #c9e3e1 55%, #7fbcb7 100%); text-align: center; }
+  .cover-top { padding: 12mm 0 8mm; }
+  .cover-top img { height: 30mm; }
+  .cover-band { background: var(--navy); color: #fff; height: 27mm; padding: 0 10mm; display: flex; flex-direction: column; justify-content: center; }
+  .cover-acronym { font-size: 26pt; font-weight: 800; letter-spacing: 0.08em; margin: 0; line-height: 1.1; }
+  .cover-full { font-size: 11pt; margin: 1mm 0 0; opacity: 0.9; }
+  .cover-art { width: 100%; height: 100%; object-fit: cover; min-height: 0; }
+  .cover-title { font-size: 22pt; color: #fff; background: var(--teal); margin: 0; padding: 7mm 10mm; line-height: 1.2; }
+
+  .back { padding: 42mm 14mm 0; align-content: start; text-align: center; grid-template-rows: auto auto auto; background: linear-gradient(180deg, #ffffff 0%, #d6ecec 100%); }
+  .back-logo { height: 34mm; margin: 0 auto 12mm; }
+  .back-title { font-size: 13pt; font-weight: 600; color: var(--navy); margin-bottom: 8mm; }
+  .contacts { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 2.5mm 6mm; font-size: 11pt; margin: 0; }
+  .contacts dt { font-weight: 700; color: var(--navy); text-align: start; }
+  .contacts dd { margin: 0; color: var(--teal); text-align: start; font-weight: 500; }
+</style>

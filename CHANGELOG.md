@@ -30,3 +30,9 @@
 
 ## 2026-10-23 — Asia Masters Center accreditations
 - The accreditations page now has an "Asia Masters Center is accredited by" panel with HRDF Malaysia, IFTDO and SSM (Companies Commission of Malaysia). Logos are in `public/images/accreditations/` and names in AR/EN are in `ui.accreditations.partnerBodies`. Source: asiamasters.org/en.
+
+## 2026-11-02 — CFDP brochure
+- Rebuilt the program brochure under the CFDP identity as a print page, `src/pages/brochure.astro`. It has 16 A4-landscape spreads, English left and Arabic right, mirroring the original. All copy comes from `src/i18n/content.ts`, so the site and the brochure stay in sync.
+- `npm run brochure` builds the site and exports `brochure/CFDP-Brochure.pdf` with headless Chrome (`scripts/brochure.mjs`). `/brochure/` is `noindex` and excluded from the sitemap.
+- Contact details are now the four phone numbers plus www.cfdp.co.uk (`site.website`). The old emails and itqan.live are gone. Illustrations were reused from the original brochure (`public/brochure/img/`).
+- "Why CFDP?" item 2 no longer mentions "the academy" (site and brochure).

@@ -11,7 +11,10 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
   integrations: [
-    sitemap({ i18n: { defaultLocale: 'ar', locales: { ar: 'ar', en: 'en' } } }),
+    sitemap({
+      i18n: { defaultLocale: 'ar', locales: { ar: 'ar', en: 'en' } },
+      filter: (page) => !page.includes('/brochure'),
+    }),
   ],
   vite: { plugins: [tailwindcss()] },
 });
